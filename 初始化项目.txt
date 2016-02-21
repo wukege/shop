@@ -1,0 +1,46 @@
+npm init 初始项目结构
+name: (shop)  项目名
+version: (1.0.0) 版本
+description:  描述信息
+entry point: (index.js) 入口点
+test command: 测试命令
+git repository:  github地址
+keywords： 关键字 shop node Express bower
+author:  作者
+license:(ISC) 授权协议 MIT
+
+====================================================
+创建.bowerrc 文件  
+.bowerrc 自定义bower的安装位置的文件
+
+bower init  初始化前端框架   注意：在cmd中初始化文件
+
+name: (shop)  项目名
+version: (1.0.0) 版本
+description:  描述信息
+main file: 主文件
+
+
+=======================================
+github的忽略文件   .gitignore
+
+==================================
+安装
+$ bower install bootstrap
+
+$ bower install angular angular-route --save    --save 并且安装到依赖列表里package.json中
+angular 核心库 
+angular-route 路由库
+
+保存cmd中历史命令
+doskey /history >> cmd.log
+保存Linux中历史命令
+history >> cmd.log
+====================================================
+后端框架安装
+$ npm install express --save
+
+=========================
+初始化git仓库
+git init
+

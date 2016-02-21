@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html ng-app="shopApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css"/>
+
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation" ng-controller="NavBarCtrl">
+    <div class="navbar-header">
+        <a href="#" class="navbar-brand">商城</a>
+        <ul class="nav navbar-nav">
+            <li><a href="#/home" >首页</a></li>
+            <li><a href="#/users/reg">注册</a></li>
+            <li><a href="#/users/login">登录</a></li>
+        </ul>
+    </div>
+</nav>
+<!--ng-view表示在ng-view中的内容是可以变化的-->
+<div class="row" ng-view>
+
+</div>
+</body>
+<script src="/lib/jquery/dist/jquery.js"></script>
+<script src="/lib/bootstrap/dist/js/bootstrap.js"></script>
+<script src="/lib/angular/angular.js"></script>
+<script src="/lib/angular-route/angular-route.js"></script>
+<script>
+    //创建了一个shopAPP的模块，['ngRoute']表示依赖于angular-route.js中的ngRoute模块
+    var app = angular.module('shopApp',['ngRoute']);
+    //配置路由
+    //$routeProvider     是路由的配置
+    //$locationProvider  path
+    app.config(function ($routeProvider,$locationProvider) {
+        //when 当访问的'/'根路径时执行什么控制器来渲染
+        $routeProvider.when('/',{
+            //templateUrl渲染模板的路径
+            templateUrl:'pages/home.html',
+            //controller 控制器
+            controller:'HomeCtrl'
+        }).when('/home',{
+            templateUrl:'pages/home.html',
+            controller:'HomeCtrl'
+        }).otherwise({
+            redirectTo:'/'
+        });
+    });
+    //创建控制器
+    //'HomeCtrl' 控制器的名字
+    // function (){}控制器的定义
+    //在定义控制器是会生成一个作用域$scope,
+    app.controller('HomeCtrl', function ($scope) {
+        //$scope.title 就是{{title}} 双打口号中的值都是$scope对象的属性
+        $scope.title = '商城';
+    });
+    app.controller('NavBarCtrl', function () {
+
+    });
+</script>
+</html>
